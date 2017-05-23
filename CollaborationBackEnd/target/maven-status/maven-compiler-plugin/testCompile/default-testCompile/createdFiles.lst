@@ -1,0 +1,6 @@
+com\virus\collaborationBE\UserTestCase.class
+com\virus\collaborationBE\JobTestCase.class
+com\virus\collaborationBE\BlogTestCase.class
+com\virus\collaborationBE\CommentsTestCase.class
+com\virus\collaborationBE\EventTestCase.class
+com\virus\collaborationBE\ForumTestCase.class

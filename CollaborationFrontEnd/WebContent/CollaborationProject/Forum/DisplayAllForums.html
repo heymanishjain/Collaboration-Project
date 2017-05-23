@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Collaboration Project</title>
+<style type="text/css">
+.row{
+	margin:0 auto;
+}
+</style>
+</head>
+<body>
+<div ng-hide="forums.length"><center><h1>No forums To Display</h1></center></div>
+<div ng-controller="ForumController as ctrl" ng-show="forums.length">
+<div ng-controller="CommentController as Cctrl">
+<div class="row">
+<div ng-repeat="forum in forums">
+    <div class="col-xs-12 col-md-12">
+      <div class="thumbnail">
+          <div class="caption">
+          <center><h1>{{forum.topic}}</h1></center>
+          <h4>Author : {{forum.userid}}</h4>
+          <h4>Date Added : {{forum.dateadded}}</h4>
+          <h4>Answers:<p><div ng-repeat="comment in comments" ng-if="forum.id == comment.forumid">{{comment.userid}} : {{comment.commentsmsg}}</div></p></h4>
+          <a ng-hide="currentuser.id" href="#/login" ng-click="Cctrl.addForum(forum.id)" class="btn btn-success">Add Your Answers</a>
+          <a ng-show="currentuser.id" href="#/addComment" ng-click="Cctrl.addForum(forum.id)" class="btn btn-success">Add Your Answers</a>
+          <a ng-if="forum.userid==currentuser.id" href="#" ng-click="ctrl.update(forum.id)"><span class="glyphicon glyphicon-pencil btn btn-success">&nbsp;Edit</span></a>
+          <a ng-if="forum.userid==currentuser.id" href="#" ng-click="ctrl.remove(forum.id)"><span class="glyphicon glyphicon-trash btn btn-warning">&nbsp;Delete</span></a>
+          </div>
+          </div>
+          </div>
+    </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

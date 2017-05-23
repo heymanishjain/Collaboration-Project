@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+.table
+{
+	text-align:center;
+	width:95%;
+	margin: 0px auto;
+	float:none;
+}
+</style>
+</head>
+<body>
+<div ng-controller="UserController as ctrl">
+<table class="table table-striped table-bordered table-hover table-checkable datatable">  
+            <thead class="grid-top-panel">  
+                <tr>  
+                    <th style="text-align:center">User ID</th>  
+                    <th style="text-align:center">Name</th>  
+                    <th style="text-align:center">Address</th>
+                    <th style="text-align:center">Contact</th>
+                    <th style="text-align:center">Mail</th>
+                    <th style="text-align:center">Role</th>  
+                    <th style="text-align:center">Actions</th>
+                </tr>  
+            </thead>  
+            <tbody>    
+            <tr>
+                    <td>{{currentuser.id}}</td>  
+                    <td>{{currentuser.name}}</td>  
+                    <td>{{currentuser.address}}</td>  
+                    <td>{{currentuser.mobile}}</td>
+                    <td>{{currentuser.mail}}</td>
+                    <td>{{currentuser.role}}</td>
+                    <td><a href="#/editUser"><span class="glyphicon glyphicon-pencil btn btn-success">&nbsp;Edit</span></a></td>  
+                </tr>  
+            </tbody>  
+        </table>  
+</div>
+
+</body>
+</html>

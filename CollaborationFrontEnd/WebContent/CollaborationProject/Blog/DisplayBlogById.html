@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div ng-controller="BlogController as ctrl">
+<form ng-submit="ctrl.displaybyid()" method="post" name="BlogIdForm">
+ <input type="text" ng-model="ctrl.blog.id" name="id">
+<input type="submit" value="submit">
+</form>
+</div>
+
+<div ng-controller="BlogController as ctrl">
+<table class="table table-striped table-bordered table-hover table-checkable datatable">  
+            <thead class="grid-top-panel">  
+                <tr>  
+                    <th>Blog Title</th>  
+                    <th>Blog Description</th>  
+                    <th>Blog Author</th>
+                    <th>Blog Date and Time</th>  
+                </tr>  
+            </thead>  
+            <tbody>    
+            <tr>
+                    <td>{{blog.title}}</td>  
+                    <td>{{blog.description}}</td>  
+                    <td>{{blog.user_id}}</td>  
+                    <td>{{blog.date_added}}</td>  
+                </tr>  
+            </tbody>  
+        </table>  
+</div>
+
+</body>
+</html>

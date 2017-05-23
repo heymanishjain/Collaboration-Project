@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Collaboration Project</title>
+<style type="text/css">
+.row{
+	margin:0 auto;
+}
+</style>
+</head>
+<body>
+<div ng-hide="blogs.length"><center><h1>No Blogs To Display</h1></center></div>
+<div ng-controller="BlogController as ctrl" ng-show="blogs.length">
+<div ng-controller="CommentController as Cctrl">
+<div class="row">
+<div ng-repeat="blog in blogs">
+    <div class="col-xs-12 col-md-12">
+      <div class="thumbnail">
+          <div class="caption">
+          <center><h1>{{blog.title}}</h1></center>
+          <h3>Description :<p>{{blog.description}}</p></h3>
+          <h4>Author : {{blog.user_id}}</h4>
+          <h4>Date Added : {{blog.date_added}}</h4>
+          <h4>Comments:<p><div ng-repeat="comment in comments" ng-if="blog.id == comment.blogid">{{comment.userid}} : {{comment.commentsmsg}}</div></p></h4>
+          <a ng-hide="currentuser.id" href="#/login" ng-click="Cctrl.add(blog.id)" class="btn btn-success">Add Comments</a>
+          <a ng-show="currentuser.id" href="#/addComment" ng-click="Cctrl.add(blog.id)" class="btn btn-success">Add Comments</a>
+          <a href="#" ng-if="blog.user_id==currentuser.id" ng-click="ctrl.update(blog.id)"><span class="glyphicon glyphicon-pencil btn btn-success">&nbsp;Edit</span></a>
+          <a href="#" ng-if="blog.user_id==currentuser.id" ng-click="ctrl.remove(blog.id)"><span class="glyphicon glyphicon-trash btn btn-warning">&nbsp;Delete</span></a>
+          </div>
+          </div>
+          </div>
+    </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
