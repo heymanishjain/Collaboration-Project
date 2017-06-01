@@ -19,7 +19,7 @@ public class Forum extends BaseDomain{
 	private int id;
 	private String topic;
 	private String userid;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy@HH:mm:ss", timezone="(UTC+05:30)")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss", timezone="(UTC+05:30)")
 	private Date dateadded;
 	public int getId() {
 		return id;

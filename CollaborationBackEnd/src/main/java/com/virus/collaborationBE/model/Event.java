@@ -8,6 +8,8 @@ import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Component
 public class Event extends BaseDomain{
@@ -16,6 +18,7 @@ public class Event extends BaseDomain{
 	private int id;
 	private String title;
 	private String description;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy@HH:mm:ss", timezone="(UTC+05:30)")
 	@Column(name="date_added")
 	private Date date;
 	private String status;

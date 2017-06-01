@@ -13,8 +13,10 @@ D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\m
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\model\User.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\impl\CommentsDAOImpl.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\impl\UserDAOImpl.java
+D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\chat\ReceiveChatMessage.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\model\Event.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\model\Job.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\JobDAO.java
+D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\chat\ChatMessage.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\UserDAO.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\impl\BlogDAOImpl.java

@@ -32,6 +32,19 @@ app.service('UserService', ['$http', '$q','$rootScope', function($http, $q,$root
                                     }
                             );
             },
+            fetchAllUsers: function(){
+            	console.log("fetchAllUsers Function Being Called")
+                    return $http.get(BASE_URL+'UserAllList')
+                            .then(
+                                    function(response){
+                                        return response.data;
+                                    }, 
+                                    function(errResponse){
+                                        console.error('Error while fetching users please try again');
+                                        return $q.reject(errResponse);
+                                    }
+                            );
+            },
             validateUser: function(user){
             	console.log("validateUser Function Being Called")
             	return $http.post(BASE_URL+'UserLoginValidate', user)

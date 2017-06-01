@@ -7,6 +7,8 @@ import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Component
 public class Blog extends BaseDomain{
@@ -17,6 +19,7 @@ public class Blog extends BaseDomain{
 	private String description;
 	private String status;
 	private String user_id;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss", timezone="(UTC+05:30)")
 	private Date date_added;
 	public int getId() {
 		return id;

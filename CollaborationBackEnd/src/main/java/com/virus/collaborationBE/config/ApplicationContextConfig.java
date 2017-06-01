@@ -2,6 +2,7 @@ package com.virus.collaborationBE.config;
 
 import java.util.Properties;
 
+
 import javax.sql.DataSource;
 
 import org.hibernate.SessionFactory;
@@ -20,6 +21,7 @@ import com.virus.collaborationBE.model.Blog;
 import com.virus.collaborationBE.model.Comments;
 import com.virus.collaborationBE.model.Event;
 import com.virus.collaborationBE.model.Forum;
+import com.virus.collaborationBE.model.Friends;
 import com.virus.collaborationBE.model.Job;
 import com.virus.collaborationBE.model.User;
 
@@ -68,6 +70,7 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClass(Event.class);
 		sessionBuilder.addAnnotatedClass(Comments.class);
 		sessionBuilder.addAnnotatedClass(Forum.class);
+		sessionBuilder.addAnnotatedClass(Friends.class);
 		// sessionBuilder.addAnnotatedClass(User.class);
 
 		logger.debug("Ending of the method getSessionFactory");

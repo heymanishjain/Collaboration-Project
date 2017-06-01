@@ -3,31 +3,48 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>CollaborationFrontEnd</title>
+<style>
+#navigation,.navbar{
+	background-image:url('CollaborationProject/resources/images/bg1.jpg');
+	padding:20px;
+}
+#effect:hover{
+	font-size: 200%;
+}
+.container-fluid{
+	background-color: transparent !important;
+    color: #fff;
+}
+</style>
 </head>
 <body>
 <div ng-controller="UserController as ctrl">
 <div ng-controller="BlogController as bctrl">
 <div ng-controller="ForumController as fctrl">
-<nav class="navbar navbar-default">
+<div ng-controller="FriendController as frctrl">
+<nav class="navbar" id="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#/">Collaboration Project</a>
+      <a class="navbar-brand" style="color:red" href="#/">Collaboration Project</a>
     </div>
     <ul class="nav navbar-nav">
-      	<li class="active"><a href="#/">Home</a></li>
-      	<li><a href="#" ng-click="bctrl.display()">Show Blogs</a></li>
-      	<li><a href="#" ng-click="fctrl.display()">Show Forums</a></li>
-    	<li ng-show="currentuser.id"><a href="#/createBlog">Create Blog</a></li>
-    	<li ng-show="currentuser.id"><a href="#/createForum">Create Forum</a></li>
+      	<li id="effect" class="active"><a href="#/" style="color:blue">Home</a></li>
+      	<li id="effect"><a href="#" ng-click="bctrl.display()" style="color:blue">Blogs</a></li>
+      	<li id="effect"><a href="#" ng-click="fctrl.display()" style="color:blue">Forums</a></li>
+      	<li id="effect"><a href="#/chat" style="color:blue">Chat Online</a></li>
+      	<li id="effect" ng-show="currentuser.id"><a href="#" ng-click="frctrl.fetch()" style="color:white">Friends</a></li>
+    	<li id="effect" ng-show="currentuser.id"><a href="#/createBlog" style="color:white">Create Blog</a></li>
+    	<li id="effect" ng-show="currentuser.id"><a href="#/createForum" style="color:white">Create Forum</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    	<li ng-hide="currentuser.id"><a href="#/login">Login</a></li>
-    	<li ng-hide="currentuser.id"><a href="#/register">Register</a></li>
-    	<li ng-show="currentuser.id"><a href="#/myProfile">My Profile</a></li>
-    	<li ng-show="currentuser.id"><a href="#/" ng-click="ctrl.logout()">Welcome : {{currentuser.name}} | Logout</a></li>
+    	<li id="effect" ng-hide="currentuser.id"><a href="#/login" style="color:white">Login</a></li>
+    	<li id="effect" ng-hide="currentuser.id"><a href="#/register" style="color:white">Register</a></li>
+    	<li id="effect" ng-show="currentuser.id"><a href="#/myProfile" style="color:white">My Profile</a></li>
+    	<li ng-show="currentuser.id"><a href="#/" style="color:white" ng-click="ctrl.logout()">Welcome : {{currentuser.name}} | Logout</a></li>
     </ul>
   </div>
 </nav>
+</div>
 </div>
 </div>
 </div>

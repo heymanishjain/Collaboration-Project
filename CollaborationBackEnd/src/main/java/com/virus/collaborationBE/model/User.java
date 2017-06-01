@@ -27,6 +27,8 @@ public class User extends BaseDomain{
 	private String mobile;
 	
 	private String address;
+	
+	private String isonline;
 
 	public String getId() {
 		return id;
@@ -90,6 +92,14 @@ public class User extends BaseDomain{
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public String getIsonline() {
+		return isonline;
+	}
+
+	public void setIsonline(String isonline) {
+		this.isonline = isonline;
 	}
 	
 }

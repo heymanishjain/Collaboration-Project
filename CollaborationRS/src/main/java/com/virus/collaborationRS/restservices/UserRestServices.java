@@ -62,6 +62,8 @@ public class UserRestServices {
 		}
 		else
 		{
+			newUser.setIsonline("Online");
+			userDAO.updateUser(newUser);
 			newUser.setErrorCode("200");
 			newUser.setErrorMessage("User Successfully Logged In");
 			logger.debug("Starting of else method of UserLoginValidates");
@@ -87,6 +89,7 @@ public class UserRestServices {
 		if(user==null)
 		{
 			logger.debug("Satrting of if(user==null) method of saveUser");
+			newUser.setIsonline("Offline");
 			userDAO.saveUser(newUser);
 			newUser.setErrorCode("200");
 			newUser.setErrorMessage("User Successfully Registered");
@@ -198,9 +201,23 @@ public class UserRestServices {
 	public ResponseEntity<User> userLogout()
 	{
 		logger.debug("Starting of the method logout");
-		session.invalidate();
-		user.setErrorCode("200");
-		user.setErrorMessage("Logout Successfull");
+		String loggedInUserId = (String) session.getAttribute("userLoggedIn");
+		User newUser = new User();
+		newUser = userDAO.getUserById(loggedInUserId);
+		if(newUser==null)
+		{
+			user.setErrorCode("404");
+			user.setErrorMessage("No Such User Found");
+		}
+		else
+		{
+			newUser.setIsonline("Offline");
+			userDAO.updateUser(newUser);
+			session.invalidate();
+			user = new User();
+			user.setErrorCode("200");
+			user.setErrorMessage("Logout Successfull");
+		}
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 }

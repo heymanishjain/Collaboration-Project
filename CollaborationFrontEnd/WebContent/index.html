@@ -9,25 +9,31 @@
 <script src="CollaborationProject/resources/js/jquery.js"></script>
 <script src="CollaborationProject/resources/js/bootstrap.js"></script>
 <script src="CollaborationProject/resources/js/sockjs.js"></script>
+<script src="CollaborationProject/resources/js/lodash.js"></script>
 <script src="CollaborationProject/resources/js/stomp.js"></script>
 <link rel="stylesheet" href="CollaborationProject/resources/css/bootstrap.css">
 <link rel="stylesheet" href="CollaborationProject/resources/css/bootstrap-theme.css">
 </head>
-<body ng-app="myApp">
+<body ng-app="myApp" background="CollaborationProject/resources/images/bg1.jpg">
+<div ng-controller="ChatController">
 <div ng-include="'CollaborationProject/Common/Header.html'"></div>
 
 <div ng-view></div>
-
+</div>
 <!-- Route File App.js -->
 <script src="CollaborationProject/resources/js/app.js"></script>
 <!-- Controllers -->
 <script src="CollaborationProject/Controller/UserController.js"></script>
 <script src="CollaborationProject/Controller/CommentController.js"></script>
+<script src="CollaborationProject/Controller/ChatController.js"></script>
+<script src="CollaborationProject/Controller/FriendController.js"></script>
 <script src="CollaborationProject/Controller/BlogController.js"></script>
 <script src="CollaborationProject/Controller/ForumController.js"></script>
 <!-- Services -->
 <script src="CollaborationProject/Services/UserService.js"></script>
 <script src="CollaborationProject/Services/CommentService.js"></script>
+<script src="CollaborationProject/Services/ChatService.js"></script>
+<script src="CollaborationProject/Services/FriendService.js"></script>
 <script src="CollaborationProject/Services/BlogService.js"></script>
 <script src="CollaborationProject/Services/ForumService.js"></script>
 

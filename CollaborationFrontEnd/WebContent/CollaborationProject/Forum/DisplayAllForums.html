@@ -6,6 +6,11 @@
 <style type="text/css">
 .row{
 	margin:0 auto;
+	background-image:url('CollaborationProject/resources/images/bg1.jpg');
+}
+.thumbnail{
+	background-color: transparent !important;
+    color: #fff;
 }
 </style>
 </head>
@@ -18,10 +23,10 @@
     <div class="col-xs-12 col-md-12">
       <div class="thumbnail">
           <div class="caption">
-          <center><h1>{{forum.topic}}</h1></center>
-          <h4>Author : {{forum.userid}}</h4>
-          <h4>Date Added : {{forum.dateadded}}</h4>
-          <h4>Answers:<p><div ng-repeat="comment in comments" ng-if="forum.id == comment.forumid">{{comment.userid}} : {{comment.commentsmsg}}</div></p></h4>
+          <center><h1 style="color:blue">{{forum.topic}}</h1></center>
+          <h4 style="color:red">Author : {{forum.userid}}</h4>
+          <h4 style="color:red">Date Added : {{forum.dateadded}}</h4>
+          <h4 style="color:yellow">Answers:<p><div ng-repeat="comment in comments" ng-if="forum.id == comment.forumid">{{comment.userid}} : {{comment.commentsmsg}}</div></p></h4>
           <a ng-hide="currentuser.id" href="#/login" ng-click="Cctrl.addForum(forum.id)" class="btn btn-success">Add Your Answers</a>
           <a ng-show="currentuser.id" href="#/addComment" ng-click="Cctrl.addForum(forum.id)" class="btn btn-success">Add Your Answers</a>
           <a ng-if="forum.userid==currentuser.id" href="#" ng-click="ctrl.update(forum.id)"><span class="glyphicon glyphicon-pencil btn btn-success">&nbsp;Edit</span></a>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div ng-controller="UserController as ctrl">
+<div ng-controller="FriendController as fctrl">
+<div class="col-md-12">
+            <div class="panel panel-default panel-table">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col col-xs-6">
+                    <h1 class="panel-title" style="font-size:30px"><b>All Users</b></h1>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <table class="table table-striped table-bordered table-list" style="text-align:center">
+                  <thead>
+                    <tr>
+                        <th style="text-align:center">ID</th>
+                        <th style="text-align:center">Name</th>
+                        <th style="text-align:center">Email</th>
+                        <th style="text-align:center">Address</th>
+                        <th style="text-align:center">Contact</th>
+                        <th style="text-align:center"><em class="fa fa-cog"></em></th>
+                    </tr> 
+                  </thead>
+                  <tbody>
+                          <tr ng-repeat="user in users">                                                   
+                            <td>{{user.id}}</td>
+                            <td>{{user.name}}</td>
+                            <td>{{user.mail}}</td>
+                            <td>{{user.address}}</td>
+                            <td>{{user.mobile}}</td>
+                            <td><a href="#/" ng-click="fctrl.submit(user.id)" class="btn btn-primary">Add Friend</a></td>
+                         </tr>
+                 </tbody>
+        </table>
+     </div>
+  </div>
+</div>
+</div>
+</div>
+</body>
+</html>

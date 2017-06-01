@@ -1,10 +1,12 @@
 com\virus\collaborationBE\dao\EventDAO.class
+com\virus\collaborationBE\chat\ChatMessage.class
 com\virus\collaborationBE\dao\JobDAO.class
 com\virus\collaborationBE\model\Event.class
 com\virus\collaborationBE\model\Comments.class
 com\virus\collaborationBE\dao\impl\EventDAOImpl.class
 com\virus\collaborationBE\config\ApplicationContextConfig.class
 com\virus\collaborationBE\model\Job.class
+com\virus\collaborationBE\chat\ReceiveChatMessage.class
 com\virus\collaborationBE\model\Forum.class
 com\virus\collaborationBE\dao\ForumDAO.class
 com\virus\collaborationBE\model\User.class

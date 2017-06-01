@@ -1,11 +1,12 @@
-app.controller('UserController',['$scope','UserService','$location','$rootScope','$cookieStore','$http',
-	function($scope, UserService, $location, $rootScope,$cookieStore, $http)
+app.controller('UserController',['$scope','UserService','$location','$cookies','$rootScope','$cookieStore','$http',
+	function($scope, UserService, $location, $cookies, $rootScope,$cookieStore, $http)
 	{
 		console.log("Starting Of UserController!")
 		this.user = {
 						id : '',
 						name : '',
 						password : '',
+						isonline:'',
 						confirmpassword : '',
 						mobile : '',
 						address : '',
@@ -18,6 +19,7 @@ app.controller('UserController',['$scope','UserService','$location','$rootScope'
 				id : '',
 				name : '',
 				password : '',
+				isonline:'',
 				confirmpassword : '',
 				mobile : '',
 				address : '',
@@ -26,7 +28,7 @@ app.controller('UserController',['$scope','UserService','$location','$rootScope'
 				errorCode : '',
 				errorMessage : ''
 			};
-
+		this.users=[];
 		this.createUser = function(user) {
 		console.log("createUser!")
 		UserService.createUser(user)
@@ -95,6 +97,7 @@ app.controller('UserController',['$scope','UserService','$location','$rootScope'
 								$location.path("/")
 							}
 							$rootScope.currentuser = this.user;
+							console.log(this.user)
 							$cookieStore.put('currentuser',this.user)
 							alert("Logged In Successfully!!!!")
 						}
@@ -113,6 +116,27 @@ app.controller('UserController',['$scope','UserService','$location','$rootScope'
 						console.error('User Not Logged In Invalid Credentials')
 					}
 			);
+		};
+		this.fetchAllUsers = function() {
+			console.log("fetchAllUsers!")
+			UserService.fetchAllUsers()
+			.then(
+					function(d) 
+					{
+						this.users=d;
+						$rootScope.users=d;
+						$location.path("/fetchUsers")
+					},
+					function(errResponse) 
+					{
+							console.error('Error while fetching User.');
+				});
+			};
+		this.fetch = function() {
+			{
+				console.log('Fetching All User');
+				this.fetchAllUsers();
+			}
 		};
 		this.submit = function() {
 									{
@@ -142,5 +166,5 @@ app.controller('UserController',['$scope','UserService','$location','$rootScope'
 										UserService.userLogout()
 										$location.path("/");
 									}
-								};
+								};														
 } ]);

@@ -369,7 +369,7 @@ public class BlogRestServices {
 		{
 			logger.debug("Checking whether User Is Logged In Or Not");
 			blog.setErrorCode("400");
-			blog.setErrorMessage("User Not Logged In Please Log In First To Delete Blog");
+			blog.setErrorMessage("User Not Logged In Please Log In First To Fetch Blog");
 			return new ResponseEntity<List<Blog>>(blogList, HttpStatus.OK);
 		}
 		if(blogList==null)

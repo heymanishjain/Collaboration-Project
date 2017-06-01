@@ -17,6 +17,14 @@ app.config(function($routeProvider) {
         templateUrl : 'CollaborationProject/User/Login.html',
         controller : 'UserController'
     })
+    .when('/fetchUsers', {
+        templateUrl : 'CollaborationProject/User/DisplayUsers.html',
+        controller : 'UserController'
+    })
+    .when('/friends', {
+        templateUrl : 'CollaborationProject/Friends/Friends.html',
+        controller : 'FriendController'
+    })
     .when('/register', {
     	templateUrl : 'CollaborationProject/User/Register.html',
 		controller : 'UserController'
@@ -67,6 +75,14 @@ app.config(function($routeProvider) {
 	.when('/addComment', {
 		templateUrl : 'CollaborationProject/Comments/AddComment.html',
 		controller : 'CommentController',
+	})
+	.when('/chat', {
+		templateUrl : 'CollaborationProject/Chat/ChatGuestLogin.html',
+		controller : 'ChatController',
+	})
+	.when('/chatOn', {
+		templateUrl : 'CollaborationProject/Chat/Chat.html',
+		controller : 'ChatController',
 	})
 	.otherwise({
 		redirectTo : '/'
