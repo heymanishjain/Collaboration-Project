@@ -125,6 +125,8 @@ app.controller('UserController',['$scope','UserService','$location','$cookies','
 					{
 						this.users=d;
 						$rootScope.users=d;
+						console.log(this.users)
+						console.log($rootScope.friends)
 						$location.path("/fetchUsers")
 					},
 					function(errResponse) 

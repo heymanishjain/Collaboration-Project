@@ -8,11 +8,21 @@ public interface FriendsDAO {
 
 	public List<Friends> fetchAllFriends();
 	
+	public List<Friends> fetchAllApprovedFriends(String userid);
+	
+	public List<Friends> fetchAllPendingFriends(String userid);
+	
+	public List<Friends> fetchAllPendingFriendsByUserid(String userid);
+	
+	public List<Friends> fetchAllRejectFriends(String userid);
+	
 	public List<Friends> fetchAllFriendsByUserId(String id);
 	
 	public Friends getFriendById(int id);
 	
 	public Boolean saveFriend(Friends friend);
+	
+	public Boolean updateFriend(Friends friend);
 	
 	public Boolean deleteFriend(Friends friend);
 }

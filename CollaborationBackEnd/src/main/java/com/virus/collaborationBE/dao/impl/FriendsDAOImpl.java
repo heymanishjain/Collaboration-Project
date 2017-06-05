@@ -62,5 +62,34 @@ public class FriendsDAOImpl implements FriendsDAO{
 	public Friends getFriendById(int id) {
 		return (Friends) sessionFactory.getCurrentSession().get(Friends.class, id);
 	}
+
+	public List<Friends> fetchAllApprovedFriends(String userid) {
+		return sessionFactory.getCurrentSession().createQuery("from Friends where status = 'Approved' and userid='"+userid+"'").list();
+	}
+
+	public List<Friends> fetchAllPendingFriends(String userid) {
+		return sessionFactory.getCurrentSession().createQuery("from Friends where status = 'Pending' and friendid='"+userid+"'").list();
+	}
+
+	public List<Friends> fetchAllRejectFriends(String userid) {
+		return sessionFactory.getCurrentSession().createQuery("from Friends where status = 'Rejected' and userid='"+userid+"'").list();
+	}
+
+	public Boolean updateFriend(Friends friend) {
+		try 
+		{
+			sessionFactory.getCurrentSession().update(friend);
+			return true;
+		}
+		catch (HibernateException e) 
+		{
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public List<Friends> fetchAllPendingFriendsByUserid(String userid) {
+		return sessionFactory.getCurrentSession().createQuery("from Friends where status = 'Pending' and userid='"+userid+"'").list();
+	}
 	
 }

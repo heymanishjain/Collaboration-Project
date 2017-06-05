@@ -3,12 +3,15 @@ app.controller("ChatController", function($scope,$rootScope,$cookies,$location ,
 	  $scope.messages = [];
 	  $scope.message = "";
 	  $scope.max = 140;
-	  $rootScope.guest="";
-	  $scope.guestName="";
+	  this.guest="";
+	  this.guestName="";
 
 	  $scope.addMessage = function() {
 		  console.log("Start Of Add Message")
-	    ChatService.send($scope.message);
+		  console.log($scope.guestName)
+		  console.log($rootScope.guest)
+		  console.log($scope.messages)
+	    ChatService.send($scope.message,$rootScope.guest);
 	    $scope.message = "";	    
 	  };
 	  
@@ -17,20 +20,19 @@ app.controller("ChatController", function($scope,$rootScope,$cookies,$location ,
 	    $scope.messages.push(message);
 	  });
 	  
-	  $scope.guestLogin = function(){
-	        if ($cookies.get("realtime-chat-nickname")) 
+	  $scope.guestLogin = function(){	    	        	        
+	        if ($("#nickname").val() !== '') 
 	        {
-	        	console.log("if")
+	        	$cookies.put("realtime-chat-nickname", $("#nickname").val())
+	        	this.guestName = $("#nickname").val();
+	        	this.guest = $("#nickname").val();
+	        	$scope.guestName = $("#nickname").val();
+	        	$rootScope.guest = $("#nickname").val();
+	        	console.log(this.guest)
+	        	console.log(this.guestName)
+	        	console.log($rootScope.guest)
+	        	console.log($scope.guestName)
 	        	$location.path("/chatOn");
-	        } 
-	        else 
-	        {
-	        	if ($("#nickname").val() !== '') 
-	        	{
-	        		console.log("else")
-	        		$cookies.put("realtime-chat-nickname", $("#nickname").val())
-	        		$location.path("/chatOn");
-	        	}
 	        }
 	   }
 });

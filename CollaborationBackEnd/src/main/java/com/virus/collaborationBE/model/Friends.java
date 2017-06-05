@@ -13,6 +13,13 @@ public class Friends extends BaseDomain{
 	private int id;
 	private String userid;
 	private String friendid;
+	private String status;
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public int getId() {
 		return id;
 	}

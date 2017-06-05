@@ -8,7 +8,6 @@ app.controller('BlogController',['$scope','BlogService','CommentService','$locat
 						description : '',
 						status : '',
 						user_id : '',
-						comments : '',
 						date_added : '',
 					};
 		this.blogs=[];

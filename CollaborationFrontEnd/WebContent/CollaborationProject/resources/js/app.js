@@ -25,6 +25,10 @@ app.config(function($routeProvider) {
         templateUrl : 'CollaborationProject/Friends/Friends.html',
         controller : 'FriendController'
     })
+    .when('/friendRequest', {
+        templateUrl : 'CollaborationProject/Friends/FriendRequest.html',
+        controller : 'FriendController'
+    })
     .when('/register', {
     	templateUrl : 'CollaborationProject/User/Register.html',
 		controller : 'UserController'

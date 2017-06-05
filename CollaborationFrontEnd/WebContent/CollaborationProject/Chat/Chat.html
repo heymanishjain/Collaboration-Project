@@ -29,11 +29,11 @@
                     <ul class="media-list">
                     	<p ng-repeat="message in messages | orderBy:'time':true" class="message">
        					 	<time>{{message.time | date:'HH:mm'}}</time>
-        					<span ng-class="{self: message.self}" id="name">{{message.name}} : {{message.message}}</span>
+        					<span ng-class="{self: message.self}" id="name">{{message.userid}} : {{message.message}}</span>
       					</p>
                     </ul>
                 </div>
-                <form ng-submit="addMessage()">
+                <form ng-submit="addMessage()">            
                 <div class="panel-footer">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Enter Message" ng-model="message" id="messageText" autofocus=""/>

@@ -9,9 +9,8 @@
 <div ng-controller="FriendController as ctrl">
 	<div ng-hide="friends.length">
 		<center>
-			<h1>You Don't Have Any Friends In Your List Please Add One</h1>
-			<a href="#" ng-click="ctrl.fetchPendingFriends()" class="btn btn-success">Friend Requests</a>
-			<a href="#" ng-click="Uctrl.fetch()" class="btn btn-success">Add Friends</a>
+			<h1>You Don't Have Any Pending Request</h1>
+			<a href="#" ng-click="ctrl.fetch()" class="btn btn-success">See All Friends</a>
 		</center>
 	</div>
 	<div ng-show="friends.length">
@@ -23,7 +22,6 @@
                     <h1 class="panel-title" style="font-size:30px"><b>Friends</b></h1>
                   </div>
                   <div class="col col-xs-6 text-right">
-                  <a href="#" ng-click="ctrl.fetchPendingFriends()" class="btn btn-success">Friend Requests</a>
                     <a href="#" ng-click="Uctrl.fetch()" class="btn btn-success">Add Friends</a>
                   </div>
                 </div>
@@ -40,8 +38,10 @@
                   <tbody>
                           <tr ng-repeat="friend in friends">
                             <td>{{friend.id}}</td>
-                            <td>{{friend.friendid}}</td>
-                            <td><a href="#" ng-click="ctrl.remove(friend.id)"><span class="glyphicon glyphicon-trash btn btn-warning">&nbsp;Delete</span></a></td>
+                            <td>{{friend.userid}}</td>
+                            <td ng-show="currentuser.id">
+                            <a href="#" class="btn btn-success" ng-click="ctrl.approve(friend.id)">Approve Request</a>
+                    	<a href="#" class="btn btn-warning" ng-click="ctrl.reject(friend.id)">Reject Request</a></td>
                          </tr>
                  </tbody>
         </table>

@@ -20,8 +20,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.virus.collaborationBE.dao.FriendsDAO;
 import com.virus.collaborationBE.dao.UserDAO;
 import com.virus.collaborationBE.model.Blog;
+import com.virus.collaborationBE.model.Friends;
 import com.virus.collaborationBE.model.User;
 
 @RestController
@@ -37,6 +39,12 @@ public class UserRestServices {
 	
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Autowired
+	private Friends friends;
+	
+	@Autowired
+	private FriendsDAO friendsDAO;
 	
 	@GetMapping("/hello")
 	public String sayHello()
@@ -79,7 +87,74 @@ public class UserRestServices {
 	public ResponseEntity<List<User>> showAllUser()
 	{
 		logger.debug("Satrting of method showAllUser");
-		return new ResponseEntity<List<User>>(userDAO.getUserList(),HttpStatus.OK);
+		List<User> userList = userDAO.getUserList();
+		String loggedInUserId = (String) session.getAttribute("userLoggedIn");
+		List<Friends> approvedFriends = friendsDAO.fetchAllApprovedFriends(loggedInUserId);
+		int size = userList.size();
+		int friendsize = approvedFriends.size();
+		int j=0;
+		for(int i=0;i<size;i++)
+		{
+			logger.debug("Inside For Loop");
+			user = userList.get(i);
+			if(j<friendsize)
+			{
+				logger.debug("2nd IF Condition ShowAllUser Inside For");
+				friends = approvedFriends.get(j);
+				logger.debug(user.getId());
+				logger.debug(friends.getFriendid());
+				if(user.getId().equals(friends.getFriendid()) || user.getId() == friends.getFriendid())
+				{
+					logger.debug("3rd IF Condition ShowAllUser Inside For");
+					userList.remove(user);
+					size=userList.size();
+					i=-1;
+					j=-1;
+				}
+				j++;
+			}
+			if(j>=friendsize)
+			{
+				logger.debug("4rth IF COndition ShowAllUser Inside For");
+				j=0;
+			}
+			if(user.getId().equals(loggedInUserId))
+			{
+				logger.debug("IF COndition ShowAllUser Inside For");
+				userList.remove(user);
+				size=userList.size();
+			}
+		}
+		List<Friends> pendingList = friendsDAO.fetchAllPendingFriendsByUserid(loggedInUserId);
+		int pendingfriendsize = pendingList.size();
+		int k = 0;
+		for(int i=0;i<size;i++)
+		{
+			logger.debug("Insiden 2nd For Loop");
+			user = userList.get(i);
+			if(k<pendingfriendsize)
+			{
+				logger.debug("6th IF Condition ShowAllUser Inside For");
+				friends = pendingList.get(k);
+				logger.debug(user.getId());
+				logger.debug(friends.getFriendid());
+				if(user.getId().equals(friends.getFriendid()) || user.getId() == friends.getFriendid())
+				{
+					logger.debug("7th IF Condition ShowAllUser Inside For");
+					userList.remove(user);
+					size=userList.size();
+					i=-1;
+					k=-1;
+				}
+				k++;
+			}
+			if(k>=pendingfriendsize)
+			{
+				logger.debug("5th IF COndition ShowAllUser Inside For");
+				k=0;
+			}
+		}
+		return new ResponseEntity<List<User>>(userList,HttpStatus.OK);
 	}
 	@PostMapping("/Usersave/")
 	public ResponseEntity<User> saveUser(@RequestBody User newUser)

@@ -1,4 +1,4 @@
-app.service("ChatService", function($q, $timeout,$cookies) 
+app.service("ChatService", function($q, $timeout,$cookies,$rootScope) 
 {
 	console.log('chat service')
     var service = {}
@@ -23,10 +23,11 @@ app.service("ChatService", function($q, $timeout,$cookies)
       return listener.promise;
     };
     
-    service.send = function(message) 
+    service.send = function(message,userid) 
     {
     	console.log('send')
     	console.log('MESSAGE '+message)
+    	console.log('UserID'+userid)
       var id = Math.floor(Math.random() * 1000000);
       socket.stomp.send(service.CHAT_BROKER, 
       {
@@ -36,12 +37,15 @@ app.service("ChatService", function($q, $timeout,$cookies)
       JSON.stringify(
       {
         message: message,
-        id: id
+        id: id,
+        userid:userid
       }));
       console.log("message: "+message)
       console.log("id: "+ id)
+      console.log("userid: "+ userid)
       messageIds.push(id);
       messageIds.push(message)
+      messageIds.push(userid)
     };
     
     var reconnect = function() 
@@ -63,14 +67,12 @@ app.service("ChatService", function($q, $timeout,$cookies)
       var out = {};
       out.message = message.message;
       out.time = new Date(message.time);
-      console.log($cookies.get("realtime-chat-nickname"))
-      out.name = $cookies.get("realtime-chat-nickname");
+      out.userid = message.userid;
       
       console.log("data: "+data)
       console.log("message: "+message.message)
       console.log("time: "+message.time)
-      console.log("name: "+message.name)
-      console.log("name: "+out.name)
+      console.log("userid: "+message.userid)
       return out;
     };
     
