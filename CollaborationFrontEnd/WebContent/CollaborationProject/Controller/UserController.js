@@ -35,6 +35,11 @@ app.controller('UserController',['$scope','UserService','$location','$cookies','
 		.then(
 				function(d) 
 				{
+					if(d.errorCode==410)
+					{
+						alert("Password & Confirm Password Not Matching")
+						$location.path("/register")
+					}
 					if(d.errorCode==200)
 					{
 						alert("Thank You User Registered Successfully!!!")
@@ -166,7 +171,12 @@ app.controller('UserController',['$scope','UserService','$location','$cookies','
 										$rootScope.currentuser = {};
 										$cookieStore.remove('currentuser');
 										UserService.userLogout()
-										$location.path("/");
+										.then(
+												function(d)
+												{
+													$location.path("/");
+												}
+										)
 									}
 								};														
 } ]);

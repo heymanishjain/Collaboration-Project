@@ -76,6 +76,10 @@ public class JobDAOImpl implements JobDAO{
 	public List<Job> getJobsByUserid(String userid) {
 		return sessionFactory.getCurrentSession().createQuery("from Job where user_id='"+userid+"'").list();
 	}
+
+	public List<Job> getAvailableJobs() {
+		return sessionFactory.getCurrentSession().createQuery("from Job where status='Available'").list();
+	}
 	
 	
 

@@ -24,8 +24,8 @@
           <div class="caption">
           <center><h1 style="color:red">{{blog.title}}</h1></center>
           <h4 style="color:blue" class="col-md-12"><span class="col-md-2"></span><span class="col-md-6">Author : {{blog.user_id}}</span> <span class="col-md-4">Date Added : {{blog.date_added}}</span></h4>
-          <h3 style="color:white">Description :<center><p>{{blog.description}}</p></center></h3>
-          <h4 style="color:yellow">Comments:<center><p><div ng-repeat="comment in comments" ng-if="blog.id == comment.blogid">{{comment.userid}} : {{comment.commentsmsg}}</div></p></center></h4>
+          <h3 style="color:white">Description :<p>{{blog.description}}</p></h3>
+          <h4 style="color:yellow">Comments:<p><div ng-repeat="comment in comments" ng-if="blog.id == comment.blogid">{{comment.userid}} : {{comment.commentsmsg}}</div></p></h4>
           <a ng-hide="currentuser.id" href="#/login" ng-click="Cctrl.add(blog.id)" class="btn btn-success">Add Comments</a></span>
           <a ng-show="currentuser.id" href="#/addComment" ng-click="Cctrl.add(blog.id)" class="btn btn-success">Add Comments</a>
           <a href="#" ng-if="blog.user_id==currentuser.id" ng-click="ctrl.update(blog.id)"><span class="glyphicon glyphicon-pencil btn btn-success">&nbsp;Edit</span></a>

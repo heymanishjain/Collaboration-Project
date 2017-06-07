@@ -39,7 +39,7 @@ public class JobTestCase {
 		job.setCompany_name("Infosys");
 		job.setDescription("Infosys job openings for freshers and new comers");
 		job.setPost("Debugger/Tester");
-		job.setSalary(50000);
+		job.setSalary("50000");
 		job.setUser_id("VirusMickey");
 		boolean flag = jobDAO.saveJob(job);
 		assertEquals("createJobTest", true, flag);
@@ -52,7 +52,7 @@ public class JobTestCase {
 		job.setCompany_name("Infosys");
 		job.setDescription("Infosys job openings for freshers and new comers");
 		job.setPost("Debugger/Tester");
-		job.setSalary(50000);
+		job.setSalary("50000");
 		boolean flag = jobDAO.updateJob(job);
 		assertEquals("updateJobTest", true, flag);
 	}

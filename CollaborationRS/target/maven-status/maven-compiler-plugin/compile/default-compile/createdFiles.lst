@@ -1,6 +1,8 @@
 com\virus\collaborationRS\restservices\ForumRestService.class
 com\virus\collaborationRS\restservices\UserRestServices.class
 com\virus\collaborationRS\config\WebSocketConfig.class
-com\virus\collaborationRS\restservices\ChatRestService.class
+com\virus\collaborationRS\restservices\JobRestService.class
+com\virus\collaborationRS\restservices\ChatController.class
+com\virus\collaborationRS\restservices\FriendsRestService.class
 com\virus\collaborationRS\restservices\BlogRestServices.class
 com\virus\collaborationRS\restservices\CommentsRestService.class

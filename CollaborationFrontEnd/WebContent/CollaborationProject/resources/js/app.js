@@ -88,6 +88,22 @@ app.config(function($routeProvider) {
 		templateUrl : 'CollaborationProject/Chat/Chat.html',
 		controller : 'ChatController',
 	})
+	.when('/displayJobs', {
+        templateUrl : 'CollaborationProject/Job/Job.html',
+        controller : 'JobController'
+    })
+    .when('/postAJob', {
+        templateUrl : 'CollaborationProject/Job/PostJob.html',
+        controller : 'JobController'
+    })
+    .when('/editJob', {
+        templateUrl : 'CollaborationProject/Job/EditJob.html',
+        controller : 'JobController'
+    })
+    .when('/applyForJob', {
+        templateUrl : 'CollaborationProject/Job/ApplyForJob.html',
+        controller : 'JobController'
+    })
 	.otherwise({
 		redirectTo : '/'
 	});

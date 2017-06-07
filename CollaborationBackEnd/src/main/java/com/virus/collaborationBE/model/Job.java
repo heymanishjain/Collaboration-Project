@@ -5,8 +5,6 @@ import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 @Entity
 @Component
 public class Job extends BaseDomain{
@@ -15,10 +13,17 @@ public class Job extends BaseDomain{
 	private int id;
 	private String title;
 	private String description;
-	private double salary;
+	private String salary;
 	private String post;
 	private String company_name;
 	private String user_id;
+	private String status;
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public String getUser_id() {
 		return user_id;
 	}
@@ -43,10 +48,10 @@ public class Job extends BaseDomain{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public double getSalary() {
+	public String getSalary() {
 		return salary;
 	}
-	public void setSalary(double salary) {
+	public void setSalary(String salary) {
 		this.salary = salary;
 	}
 	public String getPost() {

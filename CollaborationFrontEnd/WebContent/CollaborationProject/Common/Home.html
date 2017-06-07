@@ -2,10 +2,72 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>CollaborationFrontEnd</title>
+<title>Collaboration Project</title>
+<style type="text/css">
+.row{
+	margin:0 auto;
+}
+#bg,.thumbnail{
+	background-color: transparent !important;
+    color: #fff;
+}
+</style>
 </head>
 <body>
-
-Hello Home
+<div ng-controller="BlogController as bctrl">
+ <div ng-controller="ForumController as fctrl">
+  <div ng-controller="JobController as jctrl">
+		<div class="row">
+			<div class="col-xs-6 col-md-3">
+				<div class="thumbnail" id="bg">
+					<img src="CollaborationProject/resources/images/blog.png"/>
+						<div class="caption">
+							<center>
+								<h1><a href="#" ng-click="bctrl.display()">BLOGS</a></h1>
+          						<p>Write your own blog. Be A Blogger</p>
+          						<p>Share your thoughts with outer world</p>
+          					</center>
+						</div>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-3">
+				<div class="thumbnail" id="bg">
+					<img src="CollaborationProject/resources/images/events.jpg"/>
+						<div class="caption">
+							<center>
+								<h1>EVENTS</h1>
+          						<p>Organizing an event you can post it here</p>
+          						<p>Want to join or be a part of an event register here and be a part of it</p>
+          					</center>
+						</div>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-3">
+				<div class="thumbnail" id="bg">
+					<img src="CollaborationProject/resources/images/forum.jpg"/>
+						<div class="caption">
+							<center>
+								<h1><a href="#" ng-click="fctrl.display()">DISCUSSION FORUMS</a></h1>
+          						<p>Have Any doubt on any topic create a forum have suggestion on it by others.</p>
+          					</center>
+						</div>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-3">
+				<div class="thumbnail" id="bg">
+					<img src="CollaborationProject/resources/images/job.jpg"/>
+						<div class="caption">
+							<center>
+								<h1><a href="#" ng-click="jctrl.displayAvailableJobs()">JOBS</a></h1>
+								<p>In search of Jobs, you can find it here and to apply just register for free</p>
+								<p>In search of Employees, post your requests/jobs here</p>
+							</center>
+						</div>
+				</div>
+			</div>
+		</div>
+  </div>
+ </div>
+</div>
 </body>
 </html>

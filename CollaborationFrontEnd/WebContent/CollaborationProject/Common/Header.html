@@ -29,19 +29,26 @@
     </div>
     <ul class="nav navbar-nav">
       	<li id="effect" class="active"><a href="#/" style="color:blue">Home</a></li>
-      	<li id="effect"><a href="#" ng-click="bctrl.display()" style="color:blue">Blogs</a></li>
-      	<li id="effect"><a href="#" ng-click="fctrl.display()" style="color:blue">Forums</a></li>
       	<li id="effect"><a href="#/chat" style="color:blue">Chat Online</a></li>
       	<li id="effect" ng-show="currentuser.id"><a href="#" ng-click="frctrl.fetch()" style="color:white">Friends</a></li>
     	<li id="effect" ng-show="currentuser.id"><a href="#/createBlog" style="color:white">Create Blog</a></li>
     	<li id="effect" ng-show="currentuser.id"><a href="#/createForum" style="color:white">Create Forum</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    	<li id="effect" ng-hide="currentuser.id"><a href="#/login" style="color:white">Login</a></li>
-    	<li id="effect" ng-hide="currentuser.id"><a href="#/register" style="color:white">Register</a></li>
-    	<li id="effect" ng-show="currentuser.id"><a href="#/myProfile" style="color:white">My Profile</a></li>
-    	<li ng-show="currentuser.id"><a href="#/" style="color:white" ng-click="ctrl.logout()">Welcome : {{currentuser.name}} | Logout</a></li>
-    </ul>
+         <!--Start User Dropdown Menu Contents -->
+      <li id="effect" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="" style="color:blue"><b ng-show="currentuser.id">{{currentuser.name}}</b><i class="fa fa-user-circle-o fa-fw fa-lg"></i>
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          	<li id="effect" ng-hide="currentuser.id"><a href="#/login" style="color:blue"><i class="fa fa-sign-in fa-fw"></i>Login</a></li>
+  			<li id="effect" ng-hide="currentuser.id"><a href="#/register" style="color:red"><i class="fa fa-registered fa-fw"></i>Register</a></li>
+  			<li id="effect" ng-show="currentuser.id">
+  			<a href="#/myProfile"><i class="fa fa-cog fa-fw" style="color:red"></i>My Profile</a>
+  			<a href="#" ng-click="ctrl.logout()"><i class="fa fa-sign-in fa-fw" style="color:blue"></i>Logout</a></li>
+        </ul>
+      </li>
+      <!--End User Dropdown Menu Contents -->
+      </ul>
   </div>
 </nav>
 </div>

@@ -17,4 +17,6 @@ public interface JobDAO {
 	public Job getJobById(int id);
 	
 	public List<Job> getJobsByUserid(String userid);
+	
+	public List<Job> getAvailableJobs();
 }

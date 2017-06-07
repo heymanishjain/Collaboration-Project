@@ -83,6 +83,13 @@ public class UserRestServices {
 		}
 	}
 	
+	@GetMapping("fetchAllUsers")
+	public ResponseEntity<List<User>> fetchAllUser()
+	{
+		logger.debug("Satrting of methodfetchAllUser");
+		List<User> userList = userDAO.getUserList();
+		return new ResponseEntity<List<User>>(userList,HttpStatus.OK);
+	}
 	@GetMapping("/UserAllList")
 	public ResponseEntity<List<User>> showAllUser()
 	{
@@ -164,12 +171,21 @@ public class UserRestServices {
 		if(user==null)
 		{
 			logger.debug("Satrting of if(user==null) method of saveUser");
-			newUser.setIsonline("Offline");
-			userDAO.saveUser(newUser);
-			newUser.setErrorCode("200");
-			newUser.setErrorMessage("User Successfully Registered");
-			session.setAttribute("userLoggedIn", newUser.getId());
-			session.setAttribute("userLoggedInRole", newUser.getRole());
+			System.out.println(newUser.getPassword().matches(newUser.getConfirmpassword()));
+			if(newUser.getPassword().matches(newUser.getConfirmpassword()))
+			{
+				newUser.setIsonline("Offline");
+				userDAO.saveUser(newUser);
+				newUser.setErrorCode("200");
+				newUser.setErrorMessage("User Successfully Registered");
+				session.setAttribute("userLoggedIn", newUser.getId());
+				session.setAttribute("userLoggedInRole", newUser.getRole());
+			}
+			else
+			{
+				newUser.setErrorCode("410");
+				newUser.setErrorMessage("Password and Confirm Password are not matching");
+			}
 			return new ResponseEntity<User>(newUser, HttpStatus.OK);
 		}
 		else

@@ -68,7 +68,7 @@ app.controller('BlogController',['$scope','BlogService','CommentService','$locat
 						}
 						
 					},
-					function(errResponse) 
+					function(errResponse)
 					{
 							console.error('Error while updating Blog.');
 				});
