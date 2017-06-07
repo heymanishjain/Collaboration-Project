@@ -6,6 +6,7 @@
 </head>
 <body>
 <div ng-controller="JobController as ctrl">
+<div ng-controller="JobApplicationController as jactrl">
 <div ng-hide="jobs.length"><center><h1>No Jobs To Display</h1>
 <a href="#/postAJob" class="btn btn-success">Post A Job</a>
 </center>
@@ -33,6 +34,7 @@
                         <th style="text-align:center">Company Name</th>
                         <th style="text-align:center">Posted By</th>
                         <th style="text-align:center"><em class="fa fa-cog"></em></th>
+                        <th style="text-align:center" ng-show="currentuser.id">Applied By</th>
                     </tr> 
                   </thead>
                   <tbody>
@@ -42,18 +44,21 @@
                             <td>{{job.post}}</td>
                             <td>{{job.salary}}</td>
                             <td>{{job.company_name}}</td>
-                            <td>{{job.user_id}}</td>
+                            <td>{{job.user_id}}</td>                            
                             <td>
-                            <a href="#/login" ng-hide="currentuser.id" ng-click="jctrl.submit(job.id)" class="btn btn-primary">Apply Job</a>
-                            <a href="#" ng-show="currentuser.id" ng-click="jctrl.submit(job.id)" class="btn btn-primary">Apply Job</a>
                             <a href="#" ng-if="job.user_id==currentuser.id" ng-click="ctrl.update(job.id)"><span class="glyphicon glyphicon-pencil btn btn-success">&nbsp;Edit</span></a>
                             <a ng-if="job.user_id==currentuser.id" href="#" ng-click="ctrl.remove(job.id)"><span class="glyphicon glyphicon-trash btn btn-warning">&nbsp;Delete</span></a>
-                            </td>
+                            <a href="#" ng-if="job.user_id==currentuser.id" ng-click="ctrl.updateStatus(job.id)" class="btn btn-success">Close This Job</a>                           
+                            <a href="#/applyJob" ng-click="jactrl.apply(job.id)" ng-show="currentuser.id" ng-if="currentuser.id != job.user_id" class="btn btn-success">Apply Job</a>
+                            <a href="#/login" ng-hide="currentuser.id" class="btn btn-success">Apply Job</a>
+                            </td>                   
+                            <td ng-if="job.user_id==currentuser.id" ><a href="#" ng-click="jactrl.displayByJobId(job.id)" class="btn btn-success">Applied Candidates</a></td>        
                          </tr>
                  </tbody>
         </table>
      </div>
   </div>
+</div>
 </div>
 </div>
 </body>

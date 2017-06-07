@@ -1,4 +1,5 @@
 com\virus\collaborationRS\restservices\ForumRestService.class
+com\virus\collaborationRS\restservices\JobApplicationRestService.class
 com\virus\collaborationRS\restservices\UserRestServices.class
 com\virus\collaborationRS\config\WebSocketConfig.class
 com\virus\collaborationRS\restservices\JobRestService.class

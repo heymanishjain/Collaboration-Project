@@ -130,6 +130,45 @@ public class JobRestService {
 			return new ResponseEntity<Job>(newJob, HttpStatus.OK);
 		}
 	}
+	@PutMapping("/Jobupdatestatus/")
+	public ResponseEntity<Job> updatejobStatus(@RequestBody Job newJob)
+	{
+		logger.debug("Satrting of method updateeJobStatus");
+		newJob = jobDAO.getJobById(newJob.getId());
+		String loggedInUserId = (String) session.getAttribute("userLoggedIn");
+		if(loggedInUserId==null)
+		{
+			logger.debug("Checking whether User Is Logged In Or Not");
+			newJob.setErrorCode("400");
+			newJob.setErrorMessage("User Not Logged In Please Log In First To Update job");
+			return new ResponseEntity<Job>(newJob, HttpStatus.OK);
+		}
+		if(newJob==null)
+		{
+			logger.debug("Satrting of if(job==null) method of updatejobStatus");
+			newJob.setErrorCode("404");
+			newJob.setErrorMessage("No Such job Exists");
+			return new ResponseEntity<Job>(newJob, HttpStatus.OK);
+		}
+		else
+		{
+			if(newJob.getUser_id().equals(loggedInUserId))
+			{
+				logger.debug("Satrting of nested if method of else method of updatejobStatus");
+				newJob.setStatus("Closed");
+				jobDAO.updateJob(newJob);
+				newJob.setErrorCode("200");
+				newJob.setErrorMessage("job Updated Status Successfully");
+			}
+			else
+			{
+				logger.debug("Satrting of else method of updatejobStatus");
+				newJob.setErrorCode("500");
+				newJob.setErrorMessage("You Cannot Update This job Because This job Is Created By Another User");
+			}
+			return new ResponseEntity<Job>(newJob, HttpStatus.OK);
+		}
+	}
 	@DeleteMapping("/Jobdelete/{id}")
 	public ResponseEntity<Job> deletejob(@PathVariable("id")String id)
 	{

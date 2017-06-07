@@ -92,6 +92,10 @@ app.config(function($routeProvider) {
         templateUrl : 'CollaborationProject/Job/Job.html',
         controller : 'JobController'
     })
+    .when('/displayJobApplications', {
+        templateUrl : 'CollaborationProject/Job/JobApplications.html',
+        controller : 'JobApplicationController'
+    })
     .when('/postAJob', {
         templateUrl : 'CollaborationProject/Job/PostJob.html',
         controller : 'JobController'
@@ -100,7 +104,7 @@ app.config(function($routeProvider) {
         templateUrl : 'CollaborationProject/Job/EditJob.html',
         controller : 'JobController'
     })
-    .when('/applyForJob', {
+    .when('/applyJob', {
         templateUrl : 'CollaborationProject/Job/ApplyForJob.html',
         controller : 'JobController'
     })

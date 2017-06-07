@@ -23,6 +23,7 @@ import com.virus.collaborationBE.model.Event;
 import com.virus.collaborationBE.model.Forum;
 import com.virus.collaborationBE.model.Friends;
 import com.virus.collaborationBE.model.Job;
+import com.virus.collaborationBE.model.JobApplication;
 import com.virus.collaborationBE.model.User;
 
 @Configuration
@@ -71,6 +72,7 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClass(Comments.class);
 		sessionBuilder.addAnnotatedClass(Forum.class);
 		sessionBuilder.addAnnotatedClass(Friends.class);
+		sessionBuilder.addAnnotatedClass(JobApplication.class);
 		// sessionBuilder.addAnnotatedClass(User.class);
 
 		logger.debug("Ending of the method getSessionFactory");

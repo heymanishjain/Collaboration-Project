@@ -199,5 +199,27 @@ app.controller('JobController',['$scope','JobService','$location','$rootScope','
 			console.log('Updating Posted Job', $rootScope.job);
 			this.updateJob($rootScope.job)
 		}
-		this.fetchAllAvailableJobs
+		this.updateStatus = function(job) {
+			this.job.id=job;
+			console.log('Update Blog', this.job.id);
+			JobService.updateStatus(this.job)
+			.then(
+				function(d) 
+				{
+					JobService.fetchAllAvailableJobs()
+					.then(
+							function(d)
+							{
+								this.jobs=d;
+								$rootScope.jobs=d;
+								console.log(this.jobs)
+							}
+					)
+					$location.path('/displayJobs')
+				},
+				function(errResponse) 
+				{
+						console.error('Error while Updating Job Status.');
+			});
+		}
 } ]);

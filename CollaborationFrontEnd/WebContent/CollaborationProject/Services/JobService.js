@@ -58,6 +58,19 @@ app.service('JobService', ['$http', '$q','$rootScope', function($http, $q,$rootS
                                     }
                             );
             },
+            updateStatus: function(job){
+            	console.log("updateJobStatus Function Being Called")
+                    return $http.put(BASE_URL+'Jobupdatestatus/', job)
+                            .then(
+                                    function(response){
+                                        return response.data;
+                                    }, 
+                                    function(errResponse){
+                                        console.error('Error while updating job Status please try again');
+                                        return $q.reject(errResponse);
+                                    }
+                            );
+            },
             deleteJob: function(job){
             	console.log("deleteJob Function Being Called")
                     return $http.delete(BASE_URL+'Jobdelete/'+job)

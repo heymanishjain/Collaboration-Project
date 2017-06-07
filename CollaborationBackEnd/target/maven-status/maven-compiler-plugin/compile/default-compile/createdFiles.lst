@@ -5,11 +5,14 @@ com\virus\collaborationBE\model\Event.class
 com\virus\collaborationBE\model\Job.class
 com\virus\collaborationBE\model\BaseDomain.class
 com\virus\collaborationBE\chat\OutputMessage.class
+com\virus\collaborationBE\model\JobApplication.class
 com\virus\collaborationBE\model\Blog.class
 com\virus\collaborationBE\dao\EventDAO.class
 com\virus\collaborationBE\dao\FriendsDAO.class
+com\virus\collaborationBE\dao\JobApplicationDAO.class
 com\virus\collaborationBE\model\Comments.class
 com\virus\collaborationBE\dao\impl\EventDAOImpl.class
+com\virus\collaborationBE\dao\impl\JobApplicationDAOImpl.class
 com\virus\collaborationBE\config\ApplicationContextConfig.class
 com\virus\collaborationBE\model\Forum.class
 com\virus\collaborationBE\dao\ForumDAO.class

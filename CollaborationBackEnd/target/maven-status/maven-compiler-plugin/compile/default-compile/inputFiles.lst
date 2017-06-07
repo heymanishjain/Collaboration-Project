@@ -7,9 +7,11 @@ D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\d
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\model\Blog.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\model\Comments.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\model\Forum.java
+D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\impl\JobApplicationDAOImpl.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\impl\UserDAOImpl.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\model\Job.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\JobDAO.java
+D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\model\JobApplication.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\ForumDAO.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\impl\EventDAOImpl.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\impl\JobDAOImpl.java
@@ -19,6 +21,7 @@ D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\c
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\model\User.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\impl\CommentsDAOImpl.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\impl\FriendsDAOImpl.java
+D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\JobApplicationDAO.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\model\Event.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\chat\OutputMessage.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\UserDAO.java
