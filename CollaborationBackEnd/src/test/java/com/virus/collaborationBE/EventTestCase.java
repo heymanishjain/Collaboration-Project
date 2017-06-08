@@ -36,13 +36,11 @@ public class EventTestCase {
 	@Test
 	public void createEventTest()
 	{
-		long d = System.currentTimeMillis();
-		Date today = new Date(d);
 		event.setId(1);
 		event.setTitle("IPL");
 		event.setDescription("Indian Premier League");
 		event.setStatus("Running");
-		event.setDate(today);
+		event.setEventdate("1/10/11");
 		event.setUser_id("VirusMickey");
 		boolean flag = eventDAO.saveEvent(event);
 		assertEquals("createEventTest",true , flag);
@@ -50,13 +48,11 @@ public class EventTestCase {
 	@Test
 	public void updateEventTest()
 	{
-		long d = System.currentTimeMillis();
-		Date today = new Date(d);
 		event.setId(1);
 		event.setTitle("IPL 2017");
 		event.setDescription("Indian Premier League");
 		event.setStatus("Running");
-		event.setDate(today);
+		event.setEventdate("1/10/11");
 		event.setUser_id("VirusMickey");
 		boolean flag = eventDAO.updateEvent(event);
 		assertEquals("updateEventTest",true , flag);

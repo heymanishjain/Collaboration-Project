@@ -17,6 +17,7 @@
 <div ng-controller="BlogController as bctrl">
  <div ng-controller="ForumController as fctrl">
   <div ng-controller="JobController as jctrl">
+   <div ng-controller="EventController as ectrl">
 		<div class="row">
 			<div class="col-xs-6 col-md-3">
 				<div class="thumbnail" id="bg">
@@ -35,7 +36,7 @@
 					<img src="CollaborationProject/resources/images/events.jpg"/>
 						<div class="caption">
 							<center>
-								<h1>EVENTS</h1>
+								<h1><a href="#" ng-click="ectrl.display()">EVENTS</a></h1>
           						<p>Organizing an event you can post it here</p>
           						<p>Want to join or be a part of an event register here and be a part of it</p>
           					</center>
@@ -68,6 +69,7 @@
 		</div>
   </div>
  </div>
+</div>
 </div>
 </body>
 </html>

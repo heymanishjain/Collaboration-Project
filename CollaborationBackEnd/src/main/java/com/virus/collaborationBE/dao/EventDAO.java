@@ -16,5 +16,11 @@ public interface EventDAO {
 	
 	public Event getEventById(int id);
 	
+	public List<Event> getEventsByStatusOpen();
+	
+	public List<Event> getEventsByStatusClose();
+	
+	public List<Event> getEventsByStatusOngoing();
+	
 	public List<Event> getEventsByUserid(String userid);
 }

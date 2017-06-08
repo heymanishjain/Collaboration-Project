@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div ng-controller="EventController as ctrl">
+<div ng-if="eventsOpen.length == 0 &&  eventsClosed.length == 0 &&  eventsOngoing.length == 0">
+<center><h1>No Events To Display</h1>
+<a href="#/addEvent" class="btn btn-success">Post An Event</a>
+</center>
+</div>
+
+										<!-- Displaying Ongoing Events -->
+<div ng-show="eventsOngoing.length" class="col-md-12">
+            <div class="panel panel-default panel-table">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col col-xs-6">
+                    <h1 class="panel-title" style="font-size:30px"><b>Ongoing Events</b></h1>
+                  </div>
+                  <div class="col col-xs-6 text-right">
+                  <a href="#/addEvent" class="btn btn-success">Post An Event</a>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <table class="table table-striped table-bordered table-list" style="text-align:center">
+                  <thead>
+                    <tr>
+                        <th style="text-align:center">Title</th>
+                        <th style="text-align:center">Description</th>
+                        <th style="text-align:center">Event Date</th>
+                        <th style="text-align:center">Status</th>
+                        <th style="text-align:center">Posted By</th>
+                    </tr> 
+                  </thead>
+                  <tbody>
+                          <tr ng-repeat="event in eventsOngoing">                                                  
+                            <td>{{event.title}}</td>
+                            <td>{{event.description}}</td>
+                            <td>{{event.eventdate}}</td>
+                            <td>{{event.status}}</td>     
+                            <td>{{event.user_id}}</td>                                                                
+                         </tr>
+                 </tbody>
+        </table>
+     </div>
+  </div>
+</div>
+
+									<!-- Displaying Open Events -->
+<div ng-show="eventsOpen.length" class="col-md-12">
+            <div class="panel panel-default panel-table">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col col-xs-6">
+                    <h1 class="panel-title" style="font-size:30px"><b>Coming Soon Events</b></h1>
+                  </div>
+                  <div class="col col-xs-6 text-right">
+                  <a href="#/addEvent" class="btn btn-success">Post An Event</a>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <table class="table table-striped table-bordered table-list" style="text-align:center">
+                  <thead>
+                    <tr>
+                        <th style="text-align:center">Title</th>
+                        <th style="text-align:center">Description</th>
+                        <th style="text-align:center">Event Date</th>
+                        <th style="text-align:center">Status</th>
+                        <th style="text-align:center">Posted By</th>
+                    </tr> 
+                  </thead>
+                  <tbody>
+                          <tr ng-repeat="event in eventsOpen">                                                  
+                            <td>{{event.title}}</td>
+                            <td>{{event.description}}</td>
+                            <td>{{event.eventdate}}</td>
+                            <td>{{event.status}}</td>     
+                            <td>{{event.user_id}}</td>                                                                
+                         </tr>
+                 </tbody>
+        </table>
+     </div>
+  </div>
+</div>
+
+										<!-- Displaying Closed Events -->
+<div ng-show="eventsClosed.length" class="col-md-12">
+            <div class="panel panel-default panel-table">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col col-xs-6">
+                    <h1 class="panel-title" style="font-size:30px"><b>Expired Events</b></h1>
+                  </div>
+                  <div class="col col-xs-6 text-right">
+                  <a href="#/addEvent" class="btn btn-success">Post An Event</a>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <table class="table table-striped table-bordered table-list" style="text-align:center">
+                  <thead>
+                    <tr>
+                        <th style="text-align:center">Title</th>
+                        <th style="text-align:center">Description</th>
+                        <th style="text-align:center">Event Date</th>
+                        <th style="text-align:center">Status</th>
+                        <th style="text-align:center">Posted By</th>
+                    </tr> 
+                  </thead>
+                  <tbody>
+                          <tr ng-repeat="event in eventsClosed">                                                  
+                            <td>{{event.title}}</td>
+                            <td>{{event.description}}</td>
+                            <td>{{event.eventdate}}</td>
+                            <td>{{event.status}}</td>     
+                            <td>{{event.user_id}}</td>                                                                
+                         </tr>
+                 </tbody>
+        </table>
+     </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

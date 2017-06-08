@@ -1,14 +1,9 @@
 package com.virus.collaborationBE.model;
 
-import java.util.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Component
@@ -18,9 +13,7 @@ public class Event extends BaseDomain{
 	private int id;
 	private String title;
 	private String description;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy@HH:mm:ss", timezone="(UTC+05:30)")
-	@Column(name="date_added")
-	private Date date;
+	private String eventdate;
 	private String status;
 	private String user_id;
 	public String getUser_id() {
@@ -47,11 +40,11 @@ public class Event extends BaseDomain{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Date getDate() {
-		return date;
+	public String getEventdate() {
+		return eventdate;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setEventdate(String eventdate) {
+		this.eventdate = eventdate;
 	}
 	public String getStatus() {
 		return status;

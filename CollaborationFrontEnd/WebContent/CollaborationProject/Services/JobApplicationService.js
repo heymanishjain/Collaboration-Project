@@ -20,7 +20,7 @@ app.service('JobApplicationService', ['$http', '$q','$rootScope', function($http
                             );
             },
             fetchJobApplicationsByJobId: function(jobApplication){
-            	console.log("fetchJobApplicationsByUserId Function Being Called")
+            	console.log("fetchJobApplicationsByJobId Function Being Called")
                     return $http.get(BASE_URL+'JobApplicationByJobId/'+jobApplication)
                             .then(
                                     function(response){

@@ -74,5 +74,17 @@ public class EventDAOImpl implements EventDAO{
 	public List<Event> getEventsByUserid(String userid) {
 		return sessionFactory.getCurrentSession().createQuery("from Event where user_id='"+userid+"'").list();
 	}
+
+	public List<Event> getEventsByStatusOpen() {
+		return sessionFactory.getCurrentSession().createQuery("from Event where status = 'Open'").list();
+	}
+
+	public List<Event> getEventsByStatusClose() {
+		return sessionFactory.getCurrentSession().createQuery("from Event where status = 'Close'").list();
+	}
+
+	public List<Event> getEventsByStatusOngoing() {
+		return sessionFactory.getCurrentSession().createQuery("from Event where status = 'Ongoing'").list();
+	}
 	
 }

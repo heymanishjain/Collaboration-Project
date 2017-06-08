@@ -108,6 +108,14 @@ app.config(function($routeProvider) {
         templateUrl : 'CollaborationProject/Job/ApplyForJob.html',
         controller : 'JobController'
     })
+    .when('/displayEvents', {
+        templateUrl : 'CollaborationProject/Event/Event.html',
+        controller : 'EventController'
+    })
+    .when('/addEvent', {
+        templateUrl : 'CollaborationProject/Event/AddEvent.html',
+        controller : 'EventController'
+    })
 	.otherwise({
 		redirectTo : '/'
 	});
