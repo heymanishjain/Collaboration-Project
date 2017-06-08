@@ -8,7 +8,8 @@
 <div ng-controller="EventController as ctrl">
 <div ng-if="eventsOpen.length == 0 &&  eventsClosed.length == 0 &&  eventsOngoing.length == 0">
 <center><h1>No Events To Display</h1>
-<a href="#/addEvent" class="btn btn-success">Post An Event</a>
+<a ng-hide="currentuser.id" href="#/login" class="btn btn-success">Post An Event</a>
+<a ng-show="currentuser.id" href="#/addEvent" class="btn btn-success">Post An Event</a>
 </center>
 </div>
 
@@ -21,7 +22,8 @@
                     <h1 class="panel-title" style="font-size:30px"><b>Ongoing Events</b></h1>
                   </div>
                   <div class="col col-xs-6 text-right">
-                  <a href="#/addEvent" class="btn btn-success">Post An Event</a>
+                  		<a ng-hide="currentuser.id" href="#/login" class="btn btn-success">Post An Event</a>
+						<a ng-show="currentuser.id" href="#/addEvent" class="btn btn-success">Post An Event</a>
                   </div>
                 </div>
               </div>
@@ -41,7 +43,7 @@
                             <td>{{event.title}}</td>
                             <td>{{event.description}}</td>
                             <td>{{event.eventdate}}</td>
-                            <td>{{event.status}}</td>     
+                            <td>Ongoing</td>     
                             <td>{{event.user_id}}</td>                                                                
                          </tr>
                  </tbody>
@@ -79,7 +81,7 @@
                             <td>{{event.title}}</td>
                             <td>{{event.description}}</td>
                             <td>{{event.eventdate}}</td>
-                            <td>{{event.status}}</td>     
+                            <td>Coming Soon!</td>     
                             <td>{{event.user_id}}</td>                                                                
                          </tr>
                  </tbody>
@@ -117,7 +119,7 @@
                             <td>{{event.title}}</td>
                             <td>{{event.description}}</td>
                             <td>{{event.eventdate}}</td>
-                            <td>{{event.status}}</td>     
+                            <td>Closed</td>     
                             <td>{{event.user_id}}</td>                                                                
                          </tr>
                  </tbody>

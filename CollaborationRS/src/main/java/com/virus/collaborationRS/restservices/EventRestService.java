@@ -50,23 +50,35 @@ public class EventRestService {
 		if(event==null)
 		{
 			logger.debug("Satrting of if(event==null) method of saveevent");
+			System.out.println("Event Date :"+newEvent.getEventdate());
 			newEvent.setId(ThreadLocalRandom.current().nextInt(100,1000000+1));
 			newEvent.setStatus("Open");
 			newEvent.setUser_id(loggedInUserId); //This is to be used when you start with front end
 			DateTimeFormatter sdf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 	        LocalDate currentdate = LocalDate.now();
-	        LocalDate eventDate = LocalDate.parse(newEvent.getEventdate(), sdf);
-	        if(eventDate.isAfter(currentdate))
-	        {
-	        	eventDAO.saveEvent(newEvent);
-	        	newEvent.setErrorCode("200");
-	        	newEvent.setErrorMessage("event Successfully Posted");
-	        }
-	        else
-	        {
-	        	newEvent.setErrorCode("410");
-	        	newEvent.setErrorMessage("Date Entered Is Not Valid");
-	        }
+	        LocalDate eventDate;
+			try 
+			{
+				eventDate = LocalDate.parse(newEvent.getEventdate(), sdf);
+				if(eventDate.isAfter(currentdate) || eventDate.isEqual(currentdate))
+		        {
+		        	eventDAO.saveEvent(newEvent);
+		        	newEvent.setErrorCode("200");
+		        	newEvent.setErrorMessage("event Successfully Posted");
+		        }
+		        else
+		        {
+		        	newEvent.setErrorCode("410");
+		        	newEvent.setErrorMessage("Date Entered Is Not Valid");
+		        }
+			} 
+			catch (Exception e) 
+			{
+				e.printStackTrace();
+				newEvent.setErrorCode("415");
+	        	newEvent.setErrorMessage("Date Format Not Entered Properly");
+			}
+	        
 			return new ResponseEntity<Event>(newEvent, HttpStatus.OK);
 		}
 		else

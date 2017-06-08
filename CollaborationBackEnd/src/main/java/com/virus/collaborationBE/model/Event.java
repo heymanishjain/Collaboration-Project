@@ -1,9 +1,13 @@
 package com.virus.collaborationBE.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Component
@@ -13,7 +17,7 @@ public class Event extends BaseDomain{
 	private int id;
 	private String title;
 	private String description;
-	private String eventdate;
+	private String  eventdate;
 	private String status;
 	private String user_id;
 	public String getUser_id() {

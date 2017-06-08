@@ -25,11 +25,11 @@
 <nav class="navbar" id="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" style="color:red" href="#/">Collaboration Project</a>
+      <a class="navbar-brand" style="color:white" href="#/">Collaboration Project</a>
     </div>
     <ul class="nav navbar-nav">
-      	<li id="effect" class="active"><a href="#/" style="color:blue">Home</a></li>
-      	<li id="effect"><a href="#/chat" style="color:blue">Chat Online</a></li>
+      	<li id="effect" class="active"><a href="#/" style="color:white">Home</a></li>
+      	<li id="effect"><a href="#/chat" style="color:white">Chat Online</a></li>
       	<li id="effect" ng-show="currentuser.id"><a href="#" ng-click="frctrl.fetch()" style="color:white">Friends</a></li>
     	<li id="effect" ng-show="currentuser.id"><a href="#/createBlog" style="color:white">Create Blog</a></li>
     	<li id="effect" ng-show="currentuser.id"><a href="#/createForum" style="color:white">Create Forum</a></li>
@@ -37,7 +37,7 @@
     <ul class="nav navbar-nav navbar-right">
          <!--Start User Dropdown Menu Contents -->
       <li id="effect" class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="" style="color:blue"><b ng-show="currentuser.id">{{currentuser.name}}</b><i class="fa fa-user-circle-o fa-fw fa-lg"></i>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="" style="color:white"><b ng-show="currentuser.id">{{currentuser.name}}</b><i class="fa fa-user-circle-o fa-fw fa-lg"></i>
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           	<li id="effect" ng-hide="currentuser.id"><a href="#/login" style="color:blue"><i class="fa fa-sign-in fa-fw"></i>Login</a></li>

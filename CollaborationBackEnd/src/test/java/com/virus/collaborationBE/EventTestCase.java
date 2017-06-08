@@ -40,7 +40,7 @@ public class EventTestCase {
 		event.setTitle("IPL");
 		event.setDescription("Indian Premier League");
 		event.setStatus("Running");
-		event.setEventdate("1/10/11");
+		event.setEventdate("");
 		event.setUser_id("VirusMickey");
 		boolean flag = eventDAO.saveEvent(event);
 		assertEquals("createEventTest",true , flag);
@@ -52,7 +52,7 @@ public class EventTestCase {
 		event.setTitle("IPL 2017");
 		event.setDescription("Indian Premier League");
 		event.setStatus("Running");
-		event.setEventdate("1/10/11");
+		event.setEventdate("");
 		event.setUser_id("VirusMickey");
 		boolean flag = eventDAO.updateEvent(event);
 		assertEquals("updateEventTest",true , flag);

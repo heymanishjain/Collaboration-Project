@@ -22,14 +22,23 @@ app.controller('EventController',['$scope','EventService','$location','$rootScop
 					this.event=d;
 					if(this.event.errorCode==200)
 					{
-						this.display();
 						alert("Thank You Event Posted Successfully!!!")
-						$location.path("/displayEvents")
+						$location.path("/")
 					}
 					else if(this.event.errorCode==400)
 					{
 						alert("User Not Logged In Please Log In First To Post A Event")
 						$location.path("/login")
+					}
+					else if(this.event.errorCode==410)
+					{
+						alert("Date Entered Is Before The Current Date")
+						$location.path("/addEvent")
+					}
+					else if(this.event.errorCode==415)
+					{
+						alert("Please Check Date Format It Should Be MM/DD/YYYY 08/31/2017")
+						$location.path("/addEvent")
 					}
 					else if(this.event.errorCode==404)
 					{

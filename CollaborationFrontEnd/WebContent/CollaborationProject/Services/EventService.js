@@ -8,7 +8,7 @@ app.service('EventService', ['$http', '$q','$rootScope', function($http, $q,$roo
              
             postEvent: function(event){
             	console.log("postEvent Function Being Called")
-                    return $http.post(BASE_URL+'Eventpost/', job)
+                    return $http.post(BASE_URL+'Eventpost/', event)
                             .then(
                                     function(response){
                                         return response.data;

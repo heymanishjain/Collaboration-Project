@@ -2,9 +2,126 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>CollaborationProject</title>
+<style>
+.form-labels-on-top{
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 55px;
+    background-color:  #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    font: bold 14px sans-serif;
+    text-align: center;
+}
+
+.form-labels-on-top .form-row{
+    text-align: left;
+    margin: 25px auto 0;
+}
+
+.form-labels-on-top .form-title-row{
+    margin: 0 auto 40px;
+}
+
+.form-labels-on-top h1{
+    display: inline-block;
+    box-sizing: border-box;
+    color: #4C565E;
+    font-size: 24px;
+    padding: 0 0 12px 0;
+    margin: 0;
+    border-bottom: 2px solid #6CAEE0;
+}
+
+.form-labels-on-top .form-row > label span{
+    display: block;
+    box-sizing: border-box;
+    color:  #5f5f5f;
+    width: 200px;
+    padding: 0 0 12px;
+}
+
+.form-labels-on-top input{
+    color:  #5f5f5f;
+    box-sizing: border-box;
+    width: 1000px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 12px 18px;
+    border: 1px solid #dbdbdb;
+}
+
+.form-labels-on-top textarea{
+    color:  #5f5f5f;
+    box-sizing: border-box;
+    width: 1000px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 12px 18px;
+    border: 1px solid #dbdbdb;
+}
+
+.form-labels-on-top button{
+    border-radius: 2px;
+    background-color:  #6caee0;
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 14px 22px;
+    border: 0;
+    margin-top: 15px;
+}
+
+/*	Making the form responsive. Remove this media query
+    if you don't need the form to work on mobile devices. */
+
+@media (max-width: 600px) {
+
+    .form-labels-on-top{
+        padding: 30px;
+    }
+
+    .form-labels-on-top input{
+        width: 240px;
+    }
+
+}
+</style>
 </head>
 <body>
-Post An Event
+<div ng-controller="EventController as ctrl">
+        <!-- You only need this form and the form-labels-on-top.css -->
+        <form class="form-labels-on-top" name="eventForm" method="post" ng-submit="ctrl.submit()">
+
+            <div class="form-title-row">
+                <h1>Post Event</h1>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Title</span>
+                    <input type="text" ng-model="ctrl.event.title" name="title">
+                </label>
+            </div>
+            
+            <div class="form-row">
+                <label>
+                    <span>Event Date</span>
+                    <input type="text" ng-model="ctrl.event.eventdate" name="eventdate" placeholder="MM/DD/YYYY Example : 06/31/2017">
+                </label>
+            </div>
+         
+            <div class="form-row">
+                <label>
+                    <span>Description</span>
+                    <textarea name="description" ng-model="ctrl.event.description" rows="15"></textarea>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <button type="submit">Post Event</button>
+            </div>
+
+        </form>
+</div>
 </body>
 </html>

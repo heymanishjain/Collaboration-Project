@@ -8,7 +8,8 @@
 <div ng-controller="JobController as ctrl">
 <div ng-controller="JobApplicationController as jactrl">
 <div ng-hide="jobs.length"><center><h1>No Jobs To Display</h1>
-<a href="#/postAJob" class="btn btn-success">Post A Job</a>
+<a ng-hide="currentuser.id" href="#/login" class="btn btn-success">Post A Job</a>
+<a ng-show="currentuser.id" href="#/postAJob" class="btn btn-success">Post A Job</a>
 </center>
 </div>
 <div ng-show="jobs.length" class="col-md-12">
