@@ -20,6 +20,8 @@ public interface FriendsDAO {
 	
 	public Friends getFriendById(int id);
 	
+	public Friends getFriendByUserIdFriendId(String userid,String friendid);
+	
 	public Boolean saveFriend(Friends friend);
 	
 	public Boolean updateFriend(Friends friend);

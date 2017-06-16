@@ -104,7 +104,7 @@ public class UserRestServices {
 		{
 			logger.debug("Inside For Loop");
 			user = userList.get(i);
-			if(j<friendsize)
+			for(;j<friendsize;j++)
 			{
 				logger.debug("2nd IF Condition ShowAllUser Inside For");
 				friends = approvedFriends.get(j);
@@ -115,10 +115,8 @@ public class UserRestServices {
 					logger.debug("3rd IF Condition ShowAllUser Inside For");
 					userList.remove(user);
 					size=userList.size();
-					i=-1;
-					j=-1;
-				}
-				j++;
+					i=-1;					
+				}				
 			}
 			if(j>=friendsize)
 			{
@@ -132,6 +130,7 @@ public class UserRestServices {
 				size=userList.size();
 			}
 		}
+		size = userList.size();
 		List<Friends> pendingList = friendsDAO.fetchAllPendingFriendsByUserid(loggedInUserId);
 		int pendingfriendsize = pendingList.size();
 		int k = 0;
@@ -139,7 +138,7 @@ public class UserRestServices {
 		{
 			logger.debug("Insiden 2nd For Loop");
 			user = userList.get(i);
-			if(k<pendingfriendsize)
+			for(;k<pendingfriendsize;k++)
 			{
 				logger.debug("6th IF Condition ShowAllUser Inside For");
 				friends = pendingList.get(k);
@@ -150,15 +149,41 @@ public class UserRestServices {
 					logger.debug("7th IF Condition ShowAllUser Inside For");
 					userList.remove(user);
 					size=userList.size();
-					i=-1;
-					k=-1;
-				}
-				k++;
+					i=-1;					
+				}				
 			}
 			if(k>=pendingfriendsize)
 			{
 				logger.debug("5th IF COndition ShowAllUser Inside For");
 				k=0;
+			}
+		}
+		size = userList.size();
+		List<Friends> pendingFriendList = friendsDAO.fetchAllPendingFriends(loggedInUserId);
+		int pendingsize = pendingFriendList.size();
+		int a = 0;
+		for(int i=0;i<size;i++)
+		{
+			logger.debug("Insiden 3rd For Loop");
+			user = userList.get(i);
+			for(;a<pendingsize;a++)
+			{
+				logger.debug("8th IF Condition ShowAllUser Inside For");
+				friends = pendingFriendList.get(a);
+				logger.debug(user.getId());
+				logger.debug(friends.getFriendid());
+				if(user.getId().equals(friends.getUserid()) || user.getId() == friends.getUserid())
+				{
+					logger.debug("9th IF Condition ShowAllUser Inside For");
+					userList.remove(user);
+					size=userList.size();
+					i=-1;					
+				}				
+			}
+			if(a>=pendingfriendsize)
+			{
+				logger.debug("10th IF COndition ShowAllUser Inside For");
+				a=0;
 			}
 		}
 		return new ResponseEntity<List<User>>(userList,HttpStatus.OK);

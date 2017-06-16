@@ -91,5 +91,9 @@ public class FriendsDAOImpl implements FriendsDAO{
 	public List<Friends> fetchAllPendingFriendsByUserid(String userid) {
 		return sessionFactory.getCurrentSession().createQuery("from Friends where status = 'Pending' and userid='"+userid+"'").list();
 	}
+
+	public Friends getFriendByUserIdFriendId(String userid, String friendid) {
+		return (Friends) sessionFactory.getCurrentSession().createQuery("from Friends where userid='"+userid+"'and friendid='"+friendid+"'").uniqueResult();	
+	}
 	
 }

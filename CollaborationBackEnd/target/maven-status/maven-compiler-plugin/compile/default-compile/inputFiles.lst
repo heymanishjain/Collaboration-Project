@@ -15,6 +15,7 @@ D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\m
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\ForumDAO.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\impl\EventDAOImpl.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\impl\JobDAOImpl.java
+D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\chat\OutputPrivateChat.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\model\Friends.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\impl\ForumDAOImpl.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\config\ApplicationContextConfig.java
@@ -24,5 +25,6 @@ D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\d
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\JobApplicationDAO.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\model\Event.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\chat\OutputMessage.java
+D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\chat\PrivateChat.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\UserDAO.java
 D:\NIIT Project 2\CollaborationBackEnd\src\main\java\com\virus\collaborationBE\dao\impl\BlogDAOImpl.java

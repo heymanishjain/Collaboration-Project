@@ -57,5 +57,18 @@ app.service('CommentService', ['$http', '$q','$rootScope', function($http, $q,$r
                                     }
                             );
             },
+            deleteComment: function(commentid){
+            	console.log("deleteComment Function Being Called")
+                    return $http.delete(BASE_URL+'Commentdelete/'+commentid)
+                            .then(
+                                    function(response){
+                                        return response.data;
+                                    }, 
+                                    function(errResponse){
+                                        console.error('Error while deleting comment please try again');
+                                        return $q.reject(errResponse);
+                                    }
+                            );
+            },
 		}
 }]);

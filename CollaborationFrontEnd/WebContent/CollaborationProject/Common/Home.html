@@ -12,12 +12,51 @@
     color: #fff;
 }
 </style>
-</head>
+</head>	
 <body>
 <div ng-controller="BlogController as bctrl">
  <div ng-controller="ForumController as fctrl">
   <div ng-controller="JobController as jctrl">
    <div ng-controller="EventController as ectrl">
+   
+   												<!-- Carausel Starts Here -->
+		
+<div class="container">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+     <ul class="nav nav-pills nav-justified">
+            <li class="active" data-target="#myCarousel" data-slide-to="0"><a href="#/">BLOGS</a></li>
+            <li data-target="#myCarousel" data-slide-to="1"><a href="#/">FORUM</a></li>
+            <li data-target="#myCarousel" data-slide-to="2"><a href="#/">JOBS</a></li>
+            <li data-target="#myCarousel" data-slide-to="3"><a href="#/">EVENTS</a></li>
+        </ul>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <a href="#" ng-click="bctrl.display()"><img src="CollaborationProject/resources/images/blog.png" style="width:100%;"></a>               
+            </div>
+            <!-- End Item -->
+            <div class="item">
+                <a href="#" ng-click="fctrl.display()"><img src="CollaborationProject/resources/images/forum.jpg" style="width:100%;"></a>                
+            </div>
+            <!-- End Item -->
+            <div class="item">
+                <a href="#" ng-click="jctrl.displayAvailableJobs()"><img src="CollaborationProject/resources/images/job.jpg" style="width:100%;"></a>               
+            </div>
+            <!-- End Item -->
+            <div class="item">
+                <a href="#" ng-click="ectrl.display()"><img src="CollaborationProject/resources/images/events.jpg" style="width:100%;"></a>                
+            </div>
+            <!-- End Item -->
+        </div>
+        <!-- End Carousel Inner -->
+       
+    </div>
+   												<!-- Carausel Ends Here -->
+   
+   												<!-- Grid Display Starts Here -->
+<br>
+<br>
+   	<div class="container">   												
 		<div class="row">
 			<div class="col-xs-6 col-md-3">
 				<div class="thumbnail" id="bg">
@@ -67,6 +106,8 @@
 				</div>
 			</div>
 		</div>
+	</div>
+											<!-- Grid Display Ends Here -->
   </div>
  </div>
 </div>

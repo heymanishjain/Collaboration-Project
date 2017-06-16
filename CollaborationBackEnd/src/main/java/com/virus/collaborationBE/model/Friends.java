@@ -11,9 +11,16 @@ public class Friends extends BaseDomain{
 	
 	@Id
 	private int id;
+	private int chatid;
 	private String userid;
 	private String friendid;
 	private String status;
+	public int getChatid() {
+		return chatid;
+	}
+	public void setChatid(int chatid) {
+		this.chatid = chatid;
+	}
 	public String getStatus() {
 		return status;
 	}

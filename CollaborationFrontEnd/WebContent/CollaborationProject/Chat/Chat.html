@@ -15,9 +15,10 @@
  </head>
 <body>
 <div ng-controller = "ChatController as ctrl">
+										
 <div class="container">
     <div class="row " style="padding-top:40px;">
-        <h3 class="text-center">Welcome To Group Chat Stay Connected!!!</h3>
+        <h3 class="text-center">!!!!CHAT HERE STAY CONNECTED!!!!</h3>
         <br/><br/>
  
         <div class="col-md-12">
@@ -25,20 +26,22 @@
                 <div class="panel-heading">
                     <strong><span class="glyphicon glyphicon-list"></span> Chat Box</strong>
                 </div>
-                <div class="panel-body fixed-panel">
+                <div class="panel-body fixed-panel">                  
                     <ul class="media-list">
                     	<p ng-repeat="message in messages | orderBy:'time':true" class="message">
-       					 	<time>{{message.time | date:'HH:mm'}}</time>
-        					<span ng-class="{self: message.self}" id="name">{{message.userid}} : {{message.message}}</span>
-      					</p>
-                    </ul>
+       					 	<time ng-if="message.msgid == 0">{{message.time | date:'HH:mm'}}</time>
+        					<span ng-if="message.msgid == 0" ng-class="{self: message.self}" id="name">{{message.userid}} : {{message.message}}</span>
+        					<time ng-if="roomid == msgid">{{message.time | date:'HH:mm'}}</time>
+        					<span ng-if="roomid == msgid" ng-class="{self: message.self}" id="name">{{message.userid}} : {{message.message}}</span>        					
+      					</p>      							
+                    </ul>                  
                 </div>
                 <form ng-submit="addMessage()">            
                 <div class="panel-footer">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Enter Message" ng-model="message" id="messageText" autofocus=""/>
                                     <span class="input-group-btn">
-                                         <button class="btn btn-info" type="submit" id="sendMessage">SEND <span class="glyphicon glyphicon-send"></span></button>
+                                         <button class="btn btn-info" type="submit" id="sendMessage">SENDM<span class="glyphicon glyphicon-send"></span></button>
                                     </span>
                     </div>
                 </div>
@@ -47,6 +50,7 @@
         </div>
     </div>
 </div> 
-</div>
+</div>										
+
 </body>
 </html>

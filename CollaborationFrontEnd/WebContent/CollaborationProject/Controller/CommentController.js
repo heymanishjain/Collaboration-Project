@@ -12,6 +12,7 @@ app.controller('CommentController',['$scope','CommentService','$location','$root
 					};
 		this.comments=[];
 		this.blogid='';
+		this.commentid='';
 		this.forumid='';
 		this.createComment = function(comment) {
 		console.log("createComment!")
@@ -59,6 +60,51 @@ app.controller('CommentController',['$scope','CommentService','$location','$root
 			{
 				console.log('Creating New comment', this.comment);
 				this.createComment(this.comment);
+			}
+		};
+		this.deleteComment = function(commentid) {
+			console.log("deleteComment!")
+			CommentService.deleteComment(commentid)
+			.then(
+					function(d) 
+					{
+						this.comment=d;
+						if(this.comment.errorCode==200)
+						{
+							alert("Thank You Comment Deleted Successfully!!!")
+							$location.path("/")
+						}
+						else if(this.comment.errorCode==400)
+						{
+							alert("User Not Logged In Please Log In First To Delete Comment")
+							$location.path("/login")
+						}
+						else if(this.comment.errorCode==404)
+						{
+							alert("No Such Comment Exists")
+							$location.path("/")
+						}
+						else if(this.comment.errorCode==405)
+						{
+							alert("Error Deleting Comment")
+							$location.path("/")
+						}
+						else if(this.comment.errorCode==500)
+						{
+							alert("This Comment Is Not Created By You So You Cannot Delete This Comment")
+							$location.path("/")
+						}
+						
+					},
+					function(errResponse)
+					{
+							console.error('Error while deleting Comment.');
+				});
+			};
+		this.remove = function(commentid) {
+			{
+				console.log('Deleting comment', commentid);
+				this.deleteComment(commentid);
 			}
 		};
 		this.add = function(blogid) {

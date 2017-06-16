@@ -5,17 +5,25 @@ public class Message {
 	private String message;
 	  private int id;
 	  private String userid;
+	  private int msgid;
 	  
 	  public Message() {
 	    
 	  }
-	  public Message(int id, String message, String userid) {
+	  public Message(int id, String message, String userid,int msgid) {
 	    this.id = id;
 	    this.message = message;
 	    this.userid = userid;
+	    this.msgid = msgid;
 	  }
-
-	  public String getMessage() {
+	  
+	public int getMsgid() {
+		return msgid;
+	}
+	public void setMsgid(int msgid) {
+		this.msgid = msgid;
+	}
+	public String getMessage() {
 	    return message;
 	  }
 

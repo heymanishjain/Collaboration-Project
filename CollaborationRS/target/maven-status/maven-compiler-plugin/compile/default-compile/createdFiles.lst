@@ -1,3 +1,4 @@
+com\virus\collaborationRS\restservices\EventRestService.class
 com\virus\collaborationRS\restservices\ForumRestService.class
 com\virus\collaborationRS\restservices\JobApplicationRestService.class
 com\virus\collaborationRS\restservices\UserRestServices.class

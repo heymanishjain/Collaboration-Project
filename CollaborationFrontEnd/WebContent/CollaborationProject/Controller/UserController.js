@@ -101,7 +101,7 @@ app.controller('UserController',['$scope','UserService','$location','$cookies','
 							{
 								$location.path("/")
 							}
-							$rootScope.currentuser = this.user;
+							$rootScope.currentuser = d;
 							console.log(this.user)
 							$cookieStore.put('currentuser',this.user)
 							alert("Logged In Successfully!!!!")

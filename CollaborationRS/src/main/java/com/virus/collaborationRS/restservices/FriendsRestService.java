@@ -54,6 +54,7 @@ public class FriendsRestService {
 		{
 			logger.debug("Satrting of if(friends==null) method of savefriends");
 			newFriend.setId(ThreadLocalRandom.current().nextInt(100,1000000+1));
+			newFriend.setChatid(ThreadLocalRandom.current().nextInt(100,1000000+1));
 			newFriend.setUserid(loggedInUserId);
 			newFriend.setStatus("Pending");
 			friendsDAO.saveFriend(newFriend);
@@ -77,6 +78,7 @@ public class FriendsRestService {
 		int bid = Integer.parseInt(id);
 		logger.debug("Starting of deletefriends Method");
 		friends = friendsDAO.getFriendById(bid);
+		newFriend = friendsDAO.getFriendByUserIdFriendId(friends.getFriendid(), friends.getUserid());
 		String loggedInUserId = (String) session.getAttribute("userLoggedIn");
 		if(loggedInUserId==null)
 		{
@@ -96,6 +98,7 @@ public class FriendsRestService {
 		{
 			logger.debug("Satrting of nested if method of else method of deletefriends");
 			friendsDAO.deleteFriend(friends);
+			friendsDAO.deleteFriend(newFriend);
 			newFriend.setErrorCode("200");
 			newFriend.setErrorMessage("friends Deleted Successfully");
 			return new ResponseEntity<Friends>(newFriend, HttpStatus.OK);

@@ -7,6 +7,7 @@
 <body>
 <div ng-controller="UserController as Uctrl">
 <div ng-controller="FriendController as ctrl">
+<div ng-controller="ChatController as Cctrl">
 	<div ng-hide="friends.length">
 		<center>
 			<h1>You Don't Have Any Friends In Your List Please Add One</h1>
@@ -41,7 +42,10 @@
                           <tr ng-repeat="friend in friends">
                             <td>{{friend.id}}</td>
                             <td>{{friend.friendid}}</td>
-                            <td><a href="#" ng-click="ctrl.remove(friend.id)"><span class="glyphicon glyphicon-trash btn btn-warning">&nbsp;Delete</span></a></td>
+                            <td>                            	
+                            	<a href="#/chatOn" ng-click="Cctrl.privateChat(friend)"><span class="glyphicon glyphicon-msg btn btn-warning">Chat</span></a>
+                            	<a href="#" ng-click="ctrl.remove(friend.id)"><span class="glyphicon glyphicon-trash btn btn-warning">&nbsp;Delete</span></a>
+                            </td>
                          </tr>
                  </tbody>
         </table>
@@ -49,7 +53,8 @@
   </div>
 </div>
 	</div>
-</div>
-</div>
+	</div>
+	</div>
+	</div>
 </body>
 </html>
